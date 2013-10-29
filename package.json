@@ -1,5 +1,5 @@
 {
-  "name": "grunt-ftp-deploy",
+  "name": "grunt-cortex-ftp-deploy",
   "description": "Deployment over FTP",
   "version": "0.1.0",
   "homepage": "https://github.com/zonak/grunt-ftp-deploy",
