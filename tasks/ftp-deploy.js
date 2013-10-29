@@ -152,8 +152,8 @@ module.exports = function(grunt) {
       onError: done
     });
 
-    localRoot = Array.isArray(this.data.src) ? this.data.src[0] : this.data.src;
-    remoteRoot = Array.isArray(this.data.dest) ? this.data.dest[0] : this.data.dest;
+    localRoot = Array.isArray(this.data.from) ? this.data.from[0] : this.data.from;
+    remoteRoot = Array.isArray(this.data.to) ? this.data.to[0] : this.data.to;
     ftppass = path.resolve(this.data.ftppass || ".ftppass");
     authVals = this.data.auth.authKey ? getAuthByKey(ftppass,this.data.auth.authKey) : getAuthByKey(ftppass,this.data.auth.host);
     exclusions = this.data.exclusions || [];
