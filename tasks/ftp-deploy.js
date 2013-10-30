@@ -26,7 +26,6 @@ module.exports = function(grunt) {
   var remoteRoot;
   var currPath;
   var authVals;
-  var ftppass;
   var exclusions;
 
   // A method for parsing the source location and storing the information into a suitably formated object
@@ -94,7 +93,7 @@ module.exports = function(grunt) {
   function ftpPut(inFilename, cb) {
     var fileData = fs.readFileSync(localRoot + path.sep + currPath + path.sep + inFilename);
 
-    ftp.put(fileData, inFilename, function(err) {
+    ftp.put(inFilename, fileData, function(err) {
       if(err) {
         log.error('Cannot upload file: ' + inFilename + ' --> ' + err);
         cb(err);
@@ -130,12 +129,12 @@ module.exports = function(grunt) {
     });
   }
 
-  function getAuthByKey (ftppass, inKey) {
+  function getAuthByKey (inKey) {
     var tmpStr;
     var retVal = {};
 
-    if (fs.existsSync(ftppass)) {
-      tmpStr = grunt.file.read(ftppass);
+    if (fs.existsSync('.ftppass')) {
+      tmpStr = grunt.file.read('.ftppass');
       if (inKey != null && tmpStr.length) retVal = JSON.parse(tmpStr)[inKey];
     }
     return retVal;
@@ -148,14 +147,12 @@ module.exports = function(grunt) {
     // Init
     ftp = new Ftp({
       host: this.data.auth.host,
-      port: this.data.auth.port,
-      onError: done
+      port: this.data.auth.port
     });
-
+    console.log(process.cwd());
     localRoot = Array.isArray(this.data.from) ? this.data.from[0] : this.data.from;
     remoteRoot = Array.isArray(this.data.to) ? this.data.to[0] : this.data.to;
-    ftppass = path.resolve(this.data.ftppass || ".ftppass");
-    authVals = this.data.auth.authKey ? getAuthByKey(ftppass,this.data.auth.authKey) : getAuthByKey(ftppass,this.data.auth.host);
+    authVals = this.data.auth.authKey ? getAuthByKey(this.data.auth.authKey) : getAuthByKey(this.data.auth.host);
     exclusions = this.data.exclusions || [];
     ftp.useList = true;
     toTransfer = dirParseSync(localRoot);

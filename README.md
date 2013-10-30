@@ -1,4 +1,4 @@
-# grunt-ftp-deploy
+# grunt-cortex-ftp-deploy
 
 This is a [grunt](https://github.com/gruntjs/grunt) task for code deployment over the _ftp_ protocol.
 
@@ -23,8 +23,8 @@ To use this task you will need to include the following configuration in your _g
       port: 21,
       authKey: 'key1'
     },
-    src: 'path/to/source/folder',
-    dest: '/path/to/destination/folder',
+    from: 'path/to/source/folder',
+    to: '/path/to/destination/folder',
     exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'dist/tmp']
   }
 }
@@ -33,7 +33,7 @@ To use this task you will need to include the following configuration in your _g
 and load the task:
 
 ```javascript
-grunt.loadNpmTasks('grunt-ftp-deploy');
+grunt.loadNpmTasks('grunt-cortex-ftp-deploy');
 ```
 
 The parameters in our configuration are:
@@ -41,8 +41,8 @@ The parameters in our configuration are:
 - **host** - the name or the IP address of the server we are deploying to
 - **port** - the port that the _ftp_ service is running on
 - **authKey** - a key for looking up saved credentials in `.ftppass` (see next section). If no value is defined, the `host` parameter will be used
-- **src** - the source location, the local folder that we are transferring to the server
-- **dest** - the destination location, the folder on the server we are deploying to
+- **from** - the source location, the local folder that we are transferring to the server
+- **to** - the destination location, the folder on the server we are deploying to
 - **exclusions** - an optional parameter allowing us to exclude files and folders by utilizing grunt's support for [minimatch](https://github.com/isaacs/minimatch). The `matchBase` minimatch option is enabled, so `.git*` would match the path `/foo/bar/.gitignore`.
 
 ## Authentication parameters
@@ -72,6 +72,3 @@ The task prompts for credentials that are not found in `.ftppass` and it prompts
 
 This task is built by taking advantage of the great work of Sergi Mansilla and his [jsftp](https://github.com/sergi/jsftp) _node.js_ module and suited for the **0.4.x** branch of _grunt_.
 
-## Release History
-
- * 2013-08-26    v0.1.0    Switched to the _1.x_ branch of `jsftp`.
