@@ -1,7 +1,7 @@
 {
-  "name": "grunt-ftp-deploy",
+  "name": "grunt-cortex-ftp-deploy",
   "description": "Deployment over FTP",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "homepage": "https://github.com/zonak/grunt-ftp-deploy",
   "author": {
     "name": "Zoran Nakev",
