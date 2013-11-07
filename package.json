@@ -1,8 +1,8 @@
 {
   "name": "grunt-cortex-ftp-deploy",
   "description": "Deployment over FTP",
-  "version": "0.0.12",
-  "homepage": "https://github.com/zonak/grunt-ftp-deploy",
+  "version": "0.0.13",
+  "homepage": "https://github.com/supersheep/grunt-ftp-deploy",
   "author": {
     "name": "Zoran Nakev",
     "email": "zoran.nakev@gmail.com"
@@ -12,12 +12,12 @@
     "url": "git://github.com/zonak/grunt-ftp-deploy.git"
   },
   "bugs": {
-    "url": "https://github.com/zonak/grunt-ftp-deploy/issues"
+    "url": "https://github.com/supersheep/grunt-ftp-deploy/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/zonak/grunt-ftp-deploy/blob/master/LICENSE-MIT"
+      "url": "https://github.com/supersheep/grunt-ftp-deploy/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
