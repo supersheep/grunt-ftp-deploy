@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zonak/grunt-ftp-deploy.git"
+    "url": "git://github.com/supersheep/grunt-ftp-deploy.git"
   },
   "bugs": {
     "url": "https://github.com/supersheep/grunt-ftp-deploy/issues"
